@@ -13,32 +13,41 @@
 		/>
 	</head>
 	<body>
-		<h1>URL Shortener</h1>
-		<form action="" method="post">
-			<label for="fullUrl">URL</label>
-			<input type="url" name="fullUrl" id="fullUrl" />
-			<button type="submit">Shrink</button>
-		</form>
+		<div class="container">
+			<h1>URL Shortener</h1>
+			<form action="" method="post" class="my-4 form-inline">
+				<!-- <label for="fullUrl" class="sr-only">URL</label> -->
+				<input
+					required
+					placeholder="Url"
+					type="url"
+					name="fullUrl"
+					id="fullUrl"
+					class="form-control col mr-2"
+				/>
+				<button type="submit" class="btn btn-success">Shrink</button>
+			</form>
 
-		<table>
-			<thead>
-				<tr>
-					<th>Full URL</th>
-					<th>Short URL</th>
-					<th>Clicks</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>
-						<a href="http://jayvardhan.glitch.me"
-							>"http://jayvardhan.glitch.me"</a
-						>
-					</td>
-					<td><a href="http://jayvardhan.glitch.me"></a>12345</td>
-					<td>10</td>
-				</tr>
-			</tbody>
-		</table>
+			<table>
+				<thead>
+					<tr>
+						<th>Full URL</th>
+						<th>Short URL</th>
+						<th>Clicks</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="http://jayvardhan.glitch.me"
+								>"http://jayvardhan.glitch.me"</a
+							>
+						</td>
+						<td><a href="http://jayvardhan.glitch.me"></a>12345</td>
+						<td>10</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</body>
 </html>
