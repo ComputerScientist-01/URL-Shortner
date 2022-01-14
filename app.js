@@ -35,6 +35,12 @@ app.post("/shortUrls", async (req, res) => {
 	res.redirect("/");
 });
 
+/**
+ * We create a new short URL by calling the `ShortUrl.create` method,
+ * which returns a promise. We then save the
+ * new short URL to the database.
+ */
+
 app.get("/:shortUrl", async (req, res) => {
 	const shortUrl = await ShortUrl.findOne({ short: req.params.shortUrl });
 	if (shortUrl === null) return res.sendStatus(404);
@@ -46,4 +52,3 @@ app.get("/:shortUrl", async (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000);
-
