@@ -5,51 +5,43 @@
     
 </p>
 
-<h2 align="center"> Insert Project Title Here </h2>
-<h4 align="center"> Insert Project Description Here <h4>
-
-## Demo - [Link](link)
+<h2 align="center"> URL Shortener <a href="">Demo</a> </h2> 
 
 ## :fire: Features
 
-- point 1
-- point 2
-- point 3
-- point 4
+- Shorten URL's with a single click
+- simple and responsive UI
 
 ## :bulb: Built Using
 
-- [**a**]()
-- [**b**]()
-- [**c**]()
+- **NodeJS**
+- **ExpressJS**
+- [**NanoId**](https://www.npmjs.com/package/nanoid)
 
 ## :iphone: Screenshots
 
-|                                   |                                   |
-| --------------------------------- | --------------------------------- |
-| <img src="images/"  width="300"/> | <img src="images/"  width="300"/> |
-| <img src="images/" width="300"/>  | <img src="images/" width="300"/>  |
-| <img src="images/" width="300"/>  | <img src="images/" width="300"/>  |
-| <img src="images/" width="300"/>  | <img src="images/" width="300"/>  |
-| <img src="images/" width="300"/>  | <img src="images/" width="300"/>  |
+|                                   |                                   
+| --------------------------------- |
+| <img src="images/"  width="300"/> | 
+
 
 ## Instructions to run
 
 - Pre-requisites:
 
-  - < insert pre-requisite >
-  - < insert pre-requisite >
+  - Node v12.0
+  - Node Package manager (npm)
 
-- < directions to install >
+- To install all the dependencies
 
 ```bash
-< insert code >
+npm install
 ```
 
-- < directions to execute >
+- To run the project
 
 ```bash
-< insert code >
+nmp start
 ```
 
 <!-- LICENSE -->  
