@@ -5,7 +5,7 @@ const connectDB = require("./db/connect");
 
 require("dotenv").config();
 app.set("view engine", "ejs");
-
+app.use(express.urlencoded({ extended: true }));
 const port = 3000;
 
 const start = async () => {
@@ -19,8 +19,10 @@ const start = async () => {
 
 start();
 
-app.post("/shortUrls", function (req, res) {
-	res.send("POST request to the homepage");
+app.post("/shortUrls", async (req, res) => {
+	await ShortUrl.create({ full: req.body.fullUrl });
+
+	res.redirect("/");
 });
 
 app.get("/", (req, res) => {
