@@ -6,7 +6,6 @@ const connectDB = require("./db/connect");
 require("dotenv").config();
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
-const port = 3000;
 
 // start mongo db connection
 const start = async () => {
