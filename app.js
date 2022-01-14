@@ -12,7 +12,6 @@ const port = 3000;
 const start = async () => {
 	try {
 		await connectDB(process.env.MONGO_URL);
-		app.listen(port, process.stdout.write(`Server is listening on ${port}...`));
 	} catch (error) {
 		console.log(error);
 	}
@@ -45,4 +44,12 @@ app.get("/:shortUrl", async (req, res) => {
 	shortUrl.save();
 
 	res.redirect(shortUrl.full);
+});
+
+app.listen(process.env.PORT || 3000, function () {
+	console.log(
+		"Express server listening on port %d in %s mode",
+		this.address().port,
+		app.settings.env
+	);
 });
