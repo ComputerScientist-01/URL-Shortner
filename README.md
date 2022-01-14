@@ -22,7 +22,8 @@
 
 |                                   |                                   
 | --------------------------------- |
-| <img src="images/"  width="300"/> | 
+| <img src="https://user-images.githubusercontent.com/39644109/149539862-f49f280a-3e3a-47b8-8fab-4822cfa3236d.png"> | 
+
 
 
 ## Instructions to run
