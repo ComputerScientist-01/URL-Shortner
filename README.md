@@ -16,7 +16,7 @@
 
 - **NodeJS**
 - **ExpressJS**
-- [**NanoId**](https://www.npmjs.com/package/nanoid)
+- [**Nano Id**](https://www.npmjs.com/package/nanoid)
 
 ## :iphone: Screenshots
 
