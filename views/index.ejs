@@ -37,15 +37,15 @@
 					</tr>
 				</thead>
 				<tbody>
+					<% shortUrls.forEach( shortUrl => { %>
 					<tr>
 						<td>
-							<a href="http://jayvardhan.glitch.me"
-								>"http://jayvardhan.glitch.me"</a
-							>
+							<a href="<%= shortUrl.full %>">"<%= shortUrl.full %>"</a>
 						</td>
-						<td><a href="http://jayvardhan.glitch.me"></a>12345</td>
-						<td>10</td>
+						<td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+						<td><%=shortUrl.clicks%></td>
 					</tr>
+					<% }) %>
 				</tbody>
 			</table>
 		</div>
