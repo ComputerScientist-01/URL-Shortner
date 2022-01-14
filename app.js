@@ -19,12 +19,13 @@ const start = async () => {
 
 start();
 
+app.get("/", async (req, res) => {
+	const shortUrls = await ShortUrl.find();
+	res.render("index", { shortUrls: shortUrls });
+});
+
 app.post("/shortUrls", async (req, res) => {
 	await ShortUrl.create({ full: req.body.fullUrl });
 
 	res.redirect("/");
-});
-
-app.get("/", (req, res) => {
-	res.render("index");
 });
