@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const ShortUrl = require("./models/shortUrl");
 const connectDB = require("./db/connect");
 
 require("dotenv").config();
