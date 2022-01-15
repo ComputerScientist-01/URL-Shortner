@@ -1,53 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>URL Shortener</title>
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-			crossorigin="anonymous"
-		/>
-	</head>
-	<body>
-		<div class="container">
-			<h1>URL Shortener</h1>
-			<form action="/shortUrls" method="post" class="my-4 form-inline">
-				<label for="fullUrl" class="sr-only">URL</label>
-				<input
-					class="form-control col mr-2"
-					required
-					placeholder="Url"
-					type="url"
-					name="fullUrl"
-					id="fullUrl"
-				/>
-				<button type="submit" class="btn btn-success">Shrink</button>
-			</form>
 
-			<table class="table table-striped table-responsive">
-				<thead class="thead-dark">
-					<tr>
-						<th>Full URL</th>
-						<th>Short URL</th>
-						<th>Clicks</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% shortUrls.forEach( shortUrl => { %>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>URL Shortener</title>
+	<style>
+		#qrcode {
+			width: 40px;
+		}
+	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+	<div class="container">
+		<h1>URL Shortener</h1>
+		<form action="/shortUrls" method="post" class="my-4 form-inline" id="gform">
+			<label for="fullUrl" class="sr-only">URL</label>
+			<input class="form-control col mr-2" required placeholder="Url" type="url" name="fullUrl" id="fullUrl" />
+			<button type="submit" class="btn btn-success">Shrink</button>
+		</form>
+
+		<div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header border-bottom-0">
+						<h5 class="modal-title" id="exampleModalLabel">QR Code</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body" style="margin:0 auto;">
+						<div id="qrcode" style="margin-right: 190px"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<table class="table table-striped table-responsive">
+			<thead class="thead-dark">
+				<tr>
+					<th>Full URL</th>
+					<th>Short URL</th>
+					<th>QR Code</th>
+					<th>Clicks</th>
+				</tr>
+			</thead>
+			<tbody id="tableBody">
+				<% shortUrls.forEach( shortUrl=> { %>
 					<tr>
 						<td>
 							<a href="<%= shortUrl.full %>">"<%= shortUrl.full %>"</a>
 						</td>
-						<td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
-						<td><%=shortUrl.clicks%></td>
+						<td>
+							<a href="<%= shortUrl.short %>">
+								<%= shortUrl.short %>
+							</a>
+						</td>
+						<td>
+							<button type="submit" class="btn btn-success mb-4" data-toggle="modal" data-target="#form"
+								onclick="funcSubmit(event)">Generate</button>
+						</td>
+						<td>
+							<%=shortUrl.clicks%>
+						</td>
 					</tr>
 					<% }) %>
-				</tbody>
-			</table>
-		</div>
-	</body>
+			</tbody>
+		</table>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+	<script type="text/javascript">
+		const qrcode = document.getElementById("qrcode");
+		const qr = new QRCode(qrcode);
+		function funcSubmit(e) {
+			var msg = e.currentTarget.parentElement.parentElement.children[1].children[0].innerText;
+			var newmsg = "https://jay-url-shortener.herokuapp.com/" + msg
+			console.log(newmsg);
+			qr.makeCode(newmsg.trim());
+		}
+	</script>
+	<!-- Bootstrap JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+
 </html>
