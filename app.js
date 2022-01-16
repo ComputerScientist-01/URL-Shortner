@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const ShortUrl = require("./models/shortUrl");
+
 const connectDB = require("./db/connect");
 
 require("dotenv").config();
@@ -18,37 +18,6 @@ const start = async () => {
 
 start();
 
-/**
- * When the user visits the root URL, render the index template.
- */
-app.get("/", async (req, res) => {
-	const shortUrls = await ShortUrl.find();
-	res.render("index", { shortUrls: shortUrls });
-});
-
-/*
- * Create a new short URL.
- */
-app.post("/shortUrls", async (req, res) => {
-	await ShortUrl.create({ full: req.body.fullUrl });
-
-	res.redirect("/");
-});
-
-/**
- * We create a new short URL by calling the `ShortUrl.create` method,
- * which returns a promise. We then save the
- * new short URL to the database.
- */
-
-app.get("/:shortUrl", async (req, res) => {
-	const shortUrl = await ShortUrl.findOne({ short: req.params.shortUrl });
-	if (shortUrl === null) return res.sendStatus(404);
-
-	shortUrl.clicks++;
-	shortUrl.save();
-
-	res.redirect(shortUrl.full);
-});
+app.use('/', require('./routes/urlRoute'));
 
 app.listen(process.env.PORT || 3000);
