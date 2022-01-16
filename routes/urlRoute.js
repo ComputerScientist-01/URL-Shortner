@@ -7,7 +7,7 @@ const ShortUrl = require("../models/shortUrl");
  */
 router.get("/", async (req, res) => {
     const shortUrls = await ShortUrl.find();
-    res.render("index", { shortUrls: shortUrls });
+    res.render("index", { shortUrls });
 });
 
 /*
@@ -30,7 +30,7 @@ router.get("/:shortUrl", async (req, res) => {
     if (shortUrl === null) return res.sendStatus(404).json({ message: 'URL not found!!' });
 
     shortUrl.clicks++;
-    shortUrl.save();
+    await shortUrl.save();
 
     res.redirect(shortUrl.full);
 });
