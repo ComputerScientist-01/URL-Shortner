@@ -11,6 +11,7 @@
 
 - Shorten URL's with a single click
 - simple and responsive UI
+- ability to generate QR code for shortened links
 
 ## :bulb: Built Using
 
