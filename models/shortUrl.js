@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const nanoid = require("nanoid");
+const { nanoid } = require("nanoid");
 
 const shortUrlSchema = new mongoose.Schema({
 	full: {
