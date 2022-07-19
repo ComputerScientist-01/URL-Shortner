@@ -840,9 +840,9 @@ mongodb@4.7.0:
     saslprep "^1.0.3"
 
 mongoose@^6.0.14:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.4.0.tgz#22d6ab436bdf444b833e92faaa53e47b734c15c6"
-  integrity sha512-eBDrueap1Zx3qFrcYylTiqTFlL5iTEaYAxoDF1MSRdipwAzChQRMJve+vxHtxPhI2q5tmf9RYHfZwXfTUHPd3g==
+  version "6.4.5"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.4.5.tgz#59b9c0d1ca09dd17957846e75374fde34309b2fc"
+  integrity sha512-2E56DnJ4z5pWnBH4/pFGWuDFRn1Wt/JxU31Hcu0ZZtsd8I6piHavLawC9ND6GgyBpHov/aVLPLXtzB+HPKeKQg==
   dependencies:
     bson "^4.6.2"
     kareem "2.4.1"
